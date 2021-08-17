@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-export function List(props) {  
+export function Item(props) {  
   return (
     <div className="tarea">
       <p>{props.tareasPendientes}</p>
@@ -9,7 +9,7 @@ export function List(props) {
     </div>
   );
 }
-List.propTypes = {
+Item.propTypes = {
   tareasPendientes: PropTypes.string,
   idBorrar: PropTypes.number,
   borrarIDElement: PropTypes.func,

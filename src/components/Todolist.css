@@ -38,3 +38,9 @@ button {
   border: solid 1px #000000;
   padding: 10px 20px;
 }
+.flex{
+  display: flex;
+}
+.btnAd{
+  margin-right: 2px;
+}
