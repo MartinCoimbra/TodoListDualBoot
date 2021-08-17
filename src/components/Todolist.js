@@ -1,6 +1,7 @@
 import "./Todolist.css";
 import React, { useState, useEffect } from "react";
 import { Item } from "./item";
+import { Link } from "react-router-dom";
 
 function Todolist() {
   const [tarea, setTarea] = useState([""]);
@@ -34,8 +35,12 @@ function Todolist() {
             value={tarea}
           ></input>
           <div>
-            <button className="btnAd" type="submit">Add</button>
-            <button>Save</button>
+            <button className="btnAd" type="submit">
+              Add
+            </button>
+            <Link to="listas">
+              <button>Save</button>
+            </Link>
           </div>
         </div>
       </form>
