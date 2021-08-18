@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-//importo hooks para usar y manipular el state
 import { useSelector, useDispatch } from "react-redux";
-//importo las funciones de mi slice
-import { counterActions } from "../Slice";
+import { Link } from "react-router-dom";
+import "./MyLists.css";
 
 export default function MyListas(props) {
-  //para obtener el state y mostrarlo (counterdata lo definí en el store)
-  const count = useSelector((state) => state.counterdata.value);
-  //para luego utilizar las funciones del slice
+  const myLists = useSelector((state) => state.counterLists.myList);
   const dispatch = useDispatch();
   return (
     <div>
       <h2>My lists</h2>
-      {/* mylista */}
-      <div>{count}</div>
-      <button onClick={() => dispatch(counterActions.increment())}>
-        Increment
-      </button>
+      <Link to="todo">Add new todoList</Link>
+      {/* {console.log(myLists)} */}
+        {myLists.map((element, i) => {
+          console.log(element[i]);
+        return (
+          <div key={element} className="grup">
+            {element.map(element2=> { 
+              return (<p>{element2}</p>)
+            })}
+          </div>
+        );
+      })}  
     </div>
   );
 }

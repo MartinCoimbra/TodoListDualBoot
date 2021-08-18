@@ -2,11 +2,15 @@ import "./Todolist.css";
 import React, { useState, useEffect } from "react";
 import { Item } from "./item";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { ListAddActions } from "../Slice";
 
 function Todolist() {
   const [tarea, setTarea] = useState([""]);
-  const [tareasPendientes, setTareasPendientes] = useState([]);
+  const [tareasPendientes, setTareasPendientes] = useState([]); 
+  const dispatch = useDispatch();
 
+  /* Funciones */
   const borrarIDElement = (idelement) => {
     let newArray = [];
     tareasPendientes.filter(function (element, i) {
@@ -16,7 +20,6 @@ function Todolist() {
     });
     setTareasPendientes(newArray);
   };
-
   const agregarTarea = (e) => {
     e.preventDefault();
     if (tarea != "") {
@@ -24,6 +27,7 @@ function Todolist() {
       setTarea([""]);
     }
   };
+
   return (
     <div className="todolist">
       <h1>Todo List by Martin Coimbra</h1>
@@ -39,7 +43,7 @@ function Todolist() {
               Add
             </button>
             <Link to="listas">
-              <button>Save</button>
+              <button onClick={() => dispatch(ListAddActions.listAdd(tareasPendientes))}>Save</button>
             </Link>
           </div>
         </div>
