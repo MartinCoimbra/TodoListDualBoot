@@ -43,7 +43,7 @@ function Todolist() {
               Add
             </button>
             <Link to="listas">
-              <button onClick={() => dispatch(ListAddActions.listAdd(tareasPendientes))}>Save</button>
+              <button onClick={() => tareasPendientes.length > 0 ? dispatch(ListAddActions.listAdd(tareasPendientes)) : ""}>Save</button>
             </Link>
           </div>
         </div>
