@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import "./MyLists.css";
 
-export default function SeeDetails(props) {
+export default function SeeDetails() {
   const myLists = useSelector((state) => state.counterLists.myList);
   let { id } = useParams();
   const [info, setInfo] = useState({});
